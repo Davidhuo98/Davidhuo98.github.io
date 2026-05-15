@@ -1,0 +1,83 @@
+---
+layout: default
+---
+
+<article class="post">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: "%Y年%m月%d日" }}
+      </time>
+      {% if page.categories %}
+        {% for cat in page.categories %}
+          <span class="category">{{ cat }}</span>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    <h1 class="post-title">{{ page.title }}</h1>
+
+    {% if page.excerpt %}
+      <p class="post-excerpt">{{ page.excerpt }}</p>
+    {% endif %}
+
+    {% if page.github or page.demo %}
+      <div class="post-links">
+        {% if page.github %}
+          <a href="{{ page.github }}" target="_blank" rel="noopener" class="btn btn-github">
+            GitHub ↗
+          </a>
+        {% endif %}
+        {% if page.demo %}
+          <a href="{{ page.demo }}" target="_blank" rel="noopener" class="btn btn-demo">
+            Live Demo ↗
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if page.tags %}
+      <div class="post-tags">
+        {% for tag in page.tags %}
+          <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </header>
+
+  {% if page.thumbnail %}
+    <div class="post-thumbnail">
+      <img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title }}">
+    </div>
+  {% endif %}
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  <footer class="post-footer">
+    {% if page.github %}
+      <div class="post-footer-github">
+        <span>查看源码：</span>
+        <a href="{{ page.github }}" target="_blank" rel="noopener">
+          {{ page.github }}
+        </a>
+      </div>
+    {% endif %}
+
+    <nav class="post-nav">
+      {% if page.previous_post %}
+        <a href="{{ page.previous_post.url }}" class="post-nav-prev">
+          ← {{ page.previous_post.title }}
+        </a>
+      {% endif %}
+      {% if page.next_post %}
+        <a href="{{ page.next_post.url }}" class="post-nav-next">
+          {{ page.next_post.title }} →
+        </a>
+      {% endif %}
+    </nav>
+  </footer>
+
+</article>

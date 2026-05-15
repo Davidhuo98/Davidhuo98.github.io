@@ -1,0 +1,75 @@
+---
+layout: default
+---
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>用代码记录学习，用文字记录思考 <span class="highlight">{{ site.author.name }}</span></h1>
+    <p class="hero-bio">{{ site.description }}</p>
+    <div class="hero-links">
+      <a href="{{ '/projects' | relative_url }}" class="btn btn-primary">查看项目</a>
+      <a href="{{ '/blog' | relative_url }}" class="btn btn-secondary">阅读文章</a>
+      <a href="https://github.com/{{ site.github_username }}"
+         target="_blank" rel="noopener" class="btn btn-github">
+        GitHub ↗
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section-featured-projects">
+  <div class="section-header">
+    <h2>精选项目</h2>
+    <a href="{{ '/projects' | relative_url }}" class="see-all">全部项目 →</a>
+  </div>
+  <div class="projects-grid">
+    {% assign featured = site.projects | sort: "date" | reverse | limit: 3 %}
+    {% for project in featured %}
+      {% include project-card.html project=project %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section-recent-posts">
+  <div class="section-header">
+    <h2>最新文章</h2>
+    <a href="{{ '/blog' | relative_url }}" class="see-all">全部文章 →</a>
+  </div>
+  <div class="posts-list">
+    {% for post in site.posts limit: 5 %}
+      <article class="post-item">
+        <time datetime="{{ post.date | date_to_xmlschema }}">
+          {{ post.date | date: "%Y-%m-%d" }}
+        </time>
+        <a href="{{ post.url | relative_url }}" class="post-item-title">
+          {{ post.title }}
+        </a>
+        {% if post.tags %}
+          <div class="post-item-tags">
+            {% for tag in post.tags limit: 3 %}
+              <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+{% if site.data.skills %}
+  <section class="section-skills">
+    <h2>技术栈</h2>
+    <div class="skills-grid">
+      {% for group in site.data.skills %}
+        <div class="skill-group">
+          <h3>{{ group.category }}</h3>
+          <ul>
+            {% for skill in group.items %}
+              <li>{{ skill }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}

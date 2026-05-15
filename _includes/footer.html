@@ -1,0 +1,13 @@
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© 2026–至今 {{ site.author.name }}</span>
+    <div class="footer-links">
+      <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">GitHub</a>
+      {% for link in site.data.social %}
+        {% unless link.name == "GitHub" %}
+          <a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.name }}</a>
+        {% endunless %}
+      {% endfor %}
+    </div>
+  </div>
+</footer>

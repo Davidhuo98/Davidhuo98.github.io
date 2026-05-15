@@ -1,0 +1,20 @@
+- category: 语言
+  items:
+    - Python
+    - JavaScript
+    - Ruby
+    - HTML / CSS
+
+- category: 框架与库
+  items:
+    - PyTorch
+    - FastAPI
+    - Jekyll
+    - SCSS
+
+- category: 工具与平台
+  items:
+    - Git
+    - Docker
+    - GitHub Actions
+    - GitHub Pages

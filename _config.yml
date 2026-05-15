@@ -1,11 +1,30 @@
-title: HUOYANLIN
+title: HuoYanLin's blog
 description: CS Student | Developer
-theme: minima
-
-author:
-  name: HUOYANLIN
-  email: davidhuo98@gmail.com
-
+url: "https://Davidhuo98.github.io"
 github_username: Davidhuo98
 
+author:
+  email: davidhuo98@gmail.com
+  
 show_excerpts: true
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: post
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag

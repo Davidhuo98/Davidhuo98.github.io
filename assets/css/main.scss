@@ -1,0 +1,733 @@
+---
+---
+// ============================================================
+// 变量
+// ============================================================
+
+$color-bg:          #ffffff;
+$color-bg-secondary:#f7f6f3;
+$color-text:        #1a1a1a;
+$color-text-muted:  #6b6b6b;
+$color-text-light:  #9b9b9b;
+$color-accent:      #2563eb;
+$color-accent-dark: #1d4ed8;
+$color-border:      #e5e5e5;
+$color-tag-bg:      #f0f0ee;
+$color-tag-text:    #4a4a4a;
+
+$font-sans:   'Inter', 'Helvetica Neue', Arial, sans-serif;
+$font-mono:   'JetBrains Mono', 'Fira Code', monospace;
+
+$radius-sm:   4px;
+$radius-md:   8px;
+$radius-lg:   12px;
+$radius-full: 9999px;
+
+$max-width:   720px;
+$nav-height:  60px;
+
+$ease:        cubic-bezier(0.4, 0, 0.2, 1);
+
+// ============================================================
+// Reset
+// ============================================================
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-sans;
+  color: $color-text;
+  background: $color-bg;
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+a { color: $color-accent; text-decoration: none; transition: color 0.15s $ease; }
+a:hover { color: $color-accent-dark; }
+ul { list-style: none; }
+
+// ============================================================
+// 布局
+// ============================================================
+
+.main-content {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: calc(#{$nav-height} + 3rem) 1.5rem 5rem;
+  flex: 1;
+  width: 100%;
+}
+
+// ============================================================
+// 导航
+// ============================================================
+
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: $nav-height;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  background: rgba($color-bg, 0.9);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid $color-border;
+  z-index: 100;
+
+  &-logo {
+    font-weight: 600;
+    font-size: 1rem;
+    color: $color-text;
+    letter-spacing: -0.01em;
+    &:hover { color: $color-accent; }
+  }
+
+  &-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    a {
+      font-size: 0.9rem;
+      color: $color-text-muted;
+      &:hover, &.active { color: $color-text; }
+      &.active { font-weight: 500; }
+    }
+  }
+}
+
+// ============================================================
+// Footer
+// ============================================================
+
+.footer {
+  border-top: 1px solid $color-border;
+  padding: 2rem 1.5rem;
+
+  &-inner {
+    max-width: $max-width;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: $color-text-light;
+  }
+
+  &-links {
+    display: flex;
+    gap: 1.5rem;
+    a { color: $color-text-light; &:hover { color: $color-text; } }
+  }
+}
+
+// ============================================================
+// 按钮
+// ============================================================
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: $radius-md;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s $ease;
+
+  &-primary {
+    background: $color-accent;
+    color: #fff;
+    &:hover { background: $color-accent-dark; color: #fff; }
+  }
+
+  &-secondary {
+    background: $color-bg-secondary;
+    color: $color-text;
+    border-color: $color-border;
+    &:hover { border-color: darken($color-border, 10%); color: $color-text; }
+  }
+
+  &-github {
+    background: $color-text;
+    color: #fff;
+    &:hover { background: #333; color: #fff; }
+  }
+}
+
+// ============================================================
+// 标签 / 技术栈徽章
+// ============================================================
+
+.tag {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background: $color-tag-bg;
+  color: $color-tag-text;
+  font-size: 0.78rem;
+  border-radius: $radius-full;
+  font-family: $font-mono;
+  letter-spacing: 0.01em;
+}
+
+.category {
+  font-size: 0.78rem;
+  color: $color-accent;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+// ============================================================
+// 页面标题区
+// ============================================================
+
+.page-header {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid $color-border;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 0;
+  }
+
+  p {
+    color: $color-text-muted;
+    font-size: 1rem;
+  }
+}
+
+// ============================================================
+// Hero（首页）
+// ============================================================
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 3rem 0 4rem;
+
+  &-text {
+    flex: 1;
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &-bio {
+    font-size: 1.1rem;
+    color: $color-text-muted;
+    margin-bottom: 2rem;
+    max-width: 480px;
+  }
+
+  &-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  &-avatar {
+    width: 140px;
+    height: 140px;
+    flex-shrink: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid $color-border;
+    }
+  }
+}
+
+.highlight {
+  color: $color-accent;
+}
+
+// ============================================================
+// Section 通用
+// ============================================================
+
+.section-featured-projects,
+.section-recent-posts,
+.section-skills {
+  margin-top: 4rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .see-all {
+    font-size: 0.875rem;
+    color: $color-text-muted;
+    &:hover { color: $color-accent; }
+  }
+}
+
+// ============================================================
+// 项目卡片
+// ============================================================
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.project-card {
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  transition: border-color 0.2s $ease, transform 0.2s $ease;
+  background: $color-bg;
+
+  &:hover {
+    border-color: darken($color-border, 15%);
+    transform: translateY(-2px);
+  }
+
+  .card-thumbnail {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: $color-bg-secondary;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s $ease;
+    }
+
+    &:hover img { transform: scale(1.03); }
+  }
+
+  .card-body {
+    padding: 1.25rem;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .card-excerpt {
+    font-size: 0.875rem;
+    color: $color-text-muted;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .card-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-links {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+
+    a { color: $color-text-muted; &:hover { color: $color-accent; } }
+  }
+}
+
+// ============================================================
+// 文章列表
+// ============================================================
+
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.post-item {
+  display: grid;
+  grid-template-columns: 100px 1fr auto;
+  align-items: start;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid $color-border;
+
+  &:first-child { border-top: 1px solid $color-border; }
+
+  time {
+    font-size: 0.8rem;
+    color: $color-text-light;
+    font-family: $font-mono;
+    padding-top: 0.2rem;
+    white-space: nowrap;
+  }
+
+  &-main { min-width: 0; }
+
+  &-title {
+    font-size: 0.975rem;
+    font-weight: 500;
+    color: $color-text;
+    display: block;
+    &:hover { color: $color-accent; }
+  }
+
+  &-excerpt {
+    font-size: 0.85rem;
+    color: $color-text-muted;
+    margin-top: 0.3rem;
+    line-height: 1.5;
+  }
+
+  &-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    justify-content: flex-end;
+  }
+}
+
+// ============================================================
+// 技术栈
+// ============================================================
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1.5rem;
+}
+
+.skill-group {
+  h3 {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $color-text-muted;
+    margin-bottom: 0.75rem;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    li {
+      font-size: 0.9rem;
+      color: $color-text;
+      font-family: $font-mono;
+    }
+  }
+}
+
+// ============================================================
+// 文章页
+// ============================================================
+
+.post {
+  max-width: $max-width;
+
+  &-header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $color-border;
+  }
+
+  &-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+
+    time {
+      font-size: 0.85rem;
+      color: $color-text-light;
+      font-family: $font-mono;
+    }
+  }
+
+  &-title {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+  }
+
+  &-excerpt {
+    font-size: 1.1rem;
+    color: $color-text-muted;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+
+  &-links {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  &-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  &-thumbnail {
+    margin-bottom: 2.5rem;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    border: 1px solid $color-border;
+
+    img { width: 100%; }
+  }
+
+  // 文章正文排版
+  &-content {
+    h1, h2, h3, h4 {
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin: 2.5rem 0 1rem;
+      line-height: 1.3;
+    }
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.4rem; }
+    h3 { font-size: 1.15rem; }
+    h4 { font-size: 1rem; }
+
+    p { margin-bottom: 1.25rem; }
+
+    a {
+      text-decoration: underline;
+      text-decoration-color: rgba($color-accent, 0.4);
+      text-underline-offset: 3px;
+      &:hover { text-decoration-color: $color-accent; }
+    }
+
+    ul, ol {
+      margin: 0 0 1.25rem 1.5rem;
+      li { margin-bottom: 0.4rem; }
+    }
+    ul { list-style: disc; }
+    ol { list-style: decimal; }
+
+    blockquote {
+      border-left: 3px solid $color-accent;
+      padding: 0.5rem 0 0.5rem 1.25rem;
+      margin: 1.5rem 0;
+      color: $color-text-muted;
+      font-style: italic;
+    }
+
+    code {
+      font-family: $font-mono;
+      font-size: 0.875em;
+      background: $color-bg-secondary;
+      padding: 0.15em 0.4em;
+      border-radius: $radius-sm;
+      color: $color-text;
+    }
+
+    pre {
+      background: #1a1a1a;
+      color: #e5e5e5;
+      padding: 1.25rem;
+      border-radius: $radius-md;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+
+      code {
+        background: none;
+        padding: 0;
+        color: inherit;
+        font-size: 0.875rem;
+      }
+    }
+
+    img {
+      border-radius: $radius-md;
+      border: 1px solid $color-border;
+      margin: 1.5rem 0;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid $color-border;
+      margin: 2.5rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin: 1.5rem 0;
+
+      th, td {
+        padding: 0.6rem 1rem;
+        border: 1px solid $color-border;
+        text-align: left;
+      }
+
+      th {
+        background: $color-bg-secondary;
+        font-weight: 600;
+      }
+    }
+  }
+
+  &-footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid $color-border;
+
+    &-github {
+      font-size: 0.875rem;
+      color: $color-text-muted;
+      margin-bottom: 2rem;
+      word-break: break-all;
+      a { font-family: $font-mono; font-size: 0.85rem; }
+    }
+  }
+
+  &-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.875rem;
+
+    a { color: $color-text-muted; &:hover { color: $color-accent; } }
+    &-next { text-align: right; }
+  }
+}
+
+// ============================================================
+// 关于页
+// ============================================================
+
+.about-content {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+}
+
+.about-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+
+.about-bio {
+  flex: 1;
+  margin-top: 1rem;
+  
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+  }
+
+  p { color: $color-text-muted; margin-bottom: 1rem; }
+
+  &-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+  }
+}
+
+// ============================================================
+// 响应式
+// ============================================================
+
+@media (max-width: 640px) {
+  .nav {
+    padding: 0 1rem;
+    &-links { gap: 1.25rem; }
+  }
+
+  .main-content { padding-top: calc(#{$nav-height} + 2rem); }
+
+  .hero {
+    flex-direction: column-reverse;
+    gap: 1.5rem;
+    padding: 2rem 0 3rem;
+
+    &-text h1 { font-size: 1.75rem; }
+    &-avatar { width: 90px; height: 90px; }
+  }
+
+  .post-item {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+
+    &-tags { justify-content: flex-start; }
+  }
+
+  .projects-grid { grid-template-columns: 1fr; }
+
+  .about-content { flex-direction: column; }
+
+  .post-title { font-size: 1.5rem; }
+
+  .footer-inner { flex-direction: column; gap: 0.75rem; text-align: center; }
+}
+
+.tags-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+
+  .filter-btn {
+    cursor: pointer;
+    border: none;
+    background: $color-tag-bg;
+    color: $color-tag-text;
+    transition: all 0.15s $ease;
+
+    &:hover, &.active {
+      background: $color-text;
+      color: #fff;
+    }
+  }
+}

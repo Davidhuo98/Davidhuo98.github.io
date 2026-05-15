@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>
+  文章 · HuoYanLin's blog
+</title>
+  <meta name="description" content="CS Student | Developer">
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="HuoYanLin&apos;s blog" />
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>文章 | HuoYanLin’s blog</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="文章" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CS Student Developer" />
+<meta name="twitter:description" property="og:description" content="CS Student Developer" />
+<link rel="canonical" href="http://localhost:4000/blog/" />
+<meta property="og:url" content="http://localhost:4000/blog/" />
+<meta property="og:site_name" content="HuoYanLin’s blog" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="文章" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"CS Student Developer","headline":"文章","url":"http://localhost:4000/blog/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+  <nav class="nav">
+  <a href="/" class="nav-logo">HuoYanLin's blog</a>
+  <ul class="nav-links">
+    <li><a href="/projects" >项目</a></li>
+    <li><a href="/blog" class="active">文章</a></li>
+    <li><a href="/about" >关于</a></li>
+    <li>
+      <a href="https://github.com/Davidhuo98" target="_blank" rel="noopener">
+        GitHub ↗
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+  <main class="main-content">
+    <section class="page-header">
+  <h1>文章</h1>
+</section>
+
+<div class="tags-filter">
+  <button class="tag filter-btn active" data-tag="all">全部</button>
+  
+  
+    <button class="tag filter-btn" data-tag="python">python</button>
+  
+    <button class="tag filter-btn" data-tag="web">web</button>
+  
+</div>
+
+<div class="posts-list" id="posts-list">
+  
+    <article class="post-item" data-tags="python,web">
+      <time datetime="2026-05-15T00:00:00+08:00">
+        2026-05-15
+      </time>
+      <div class="post-item-main">
+        <a href="/projects/2026/05/15/my-first-project.html" class="post-item-title">
+          我的第一个项目
+        </a>
+        
+          <p class="post-item-excerpt">
+            项目介绍
+
+          </p>
+        
+      </div>
+      
+        <div class="post-item-tags">
+          
+            <button class="tag filter-btn" data-tag="python">python</button>
+          
+            <button class="tag filter-btn" data-tag="web">web</button>
+          
+        </div>
+      
+    </article>
+  
+</div>
+
+<script>
+const btns = document.querySelectorAll('.filter-btn');
+const posts = document.querySelectorAll('.post-item');
+
+btns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const tag = btn.dataset.tag;
+
+    btns.forEach(b => b.classList.remove('active'));
+    document.querySelectorAll(`[data-tag="${tag}"]`).forEach(b => b.classList.add('active'));
+
+    posts.forEach(post => {
+      const tags = post.dataset.tags.split(',');
+      post.style.display = (tag === 'all' || tags.includes(tag)) ? '' : 'none';
+    });
+  });
+});
+</script>
+
+
+  </main>
+
+  <footer class="footer">
+  <div class="footer-inner">
+    <span>© 2026–至今 </span>
+    <div class="footer-links">
+      <a href="https://github.com/Davidhuo98" target="_blank" rel="noopener">GitHub</a>
+      
+        
+      
+        
+          <a href="https://www.linkedin.com/in/huo-yanlin-5542ba361" target="_blank" rel="noopener">LinkedIn</a>
+        
+      
+        
+          <a href="mailto:davidhuo98@gmail.com" target="_blank" rel="noopener">Email</a>
+        
+      
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+<nav class="nav">
+  <a href="{{ '/' | relative_url }}" class="nav-logo">HuoYanLin's blog</a>
+  <ul class="nav-links">
+    <li><a href="{{ '/projects' | relative_url }}" {% if page.url contains 'projects' %}class="active"{% endif %}>项目</a></li>
+    <li><a href="{{ '/blog' | relative_url }}" {% if page.url contains 'blog' %}class="active"{% endif %}>文章</a></li>
+    <li><a href="{{ '/about' | relative_url }}" {% if page.url contains 'about' %}class="active"{% endif %}>关于</a></li>
+    <li>
+      <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">
+        GitHub ↗
+      </a>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-05-15T23:15:15+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">HuoYanLin’s blog</title><subtitle>CS Student | Developer</subtitle><author><name>{&quot;email&quot;=&gt;&quot;davidhuo98@gmail.com&quot;}</name><email>davidhuo98@gmail.com</email></author><entry><title type="html">我的第一个项目</title><link href="http://localhost:4000/projects/2026/05/15/my-first-project.html" rel="alternate" type="text/html" title="我的第一个项目" /><published>2026-05-15T00:00:00+08:00</published><updated>2026-05-15T00:00:00+08:00</updated><id>http://localhost:4000/projects/2026/05/15/my-first-project</id><content type="html" xml:base="http://localhost:4000/projects/2026/05/15/my-first-project.html"><![CDATA[<h2 id="项目介绍">项目介绍</h2>
+
+<p>这是一个用 Java写的项目</p>
+
+<h2 id="技术栈">技术栈</h2>
+
+<ul>
+  <li>Python 3.10</li>
+  <li>Flask</li>
+  <li>SQLite</li>
+</ul>
+
+<h2 id="github-链接">GitHub 链接</h2>
+
+<p><a href="https://github.com/Davidhuo98/Order-Processing-Simulation">查看代码</a></p>]]></content><author><name>{&quot;email&quot;=&gt;&quot;davidhuo98@gmail.com&quot;}</name><email>davidhuo98@gmail.com</email></author><category term="projects" /><category term="python" /><category term="web" /><summary type="html"><![CDATA[项目介绍]]></summary></entry></feed>

@@ -1,0 +1,27 @@
+<div class="project-card">
+  {% if include.project.thumbnail %}
+    <div class="card-thumbnail">
+      <img src="{{ include.project.thumbnail | relative_url }}" alt="{{ include.project.title }}">
+    </div>
+  {% endif %}
+  <div class="card-body">
+    <h3 class="card-title">{{ include.project.title }}</h3>
+    <p class="card-excerpt">{{ include.project.excerpt }}</p>
+    {% if include.project.tech %}
+      <div class="card-tech">
+        {% for t in include.project.tech %}
+          <span class="tag">{{ t }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+    <div class="card-links">
+      <a href="{{ include.project.github }}" target="_blank" rel="noopener">GitHub ↗</a>
+      {% if include.project.post_link %}
+        <a href="{{ include.project.post_link | relative_url }}">阅读文章 →</a>
+      {% endif %}
+      {% if include.project.demo %}
+        <a href="{{ include.project.demo }}" target="_blank" rel="noopener">Live Demo ↗</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
