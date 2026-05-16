@@ -18,21 +18,13 @@ layout: default
 
     <h1 class="post-title">{{ page.title }}</h1>
 
-    {% if page.excerpt %}
-      <p class="post-excerpt">{{ page.excerpt }}</p>
-    {% endif %}
-
     {% if page.github or page.demo %}
       <div class="post-links">
         {% if page.github %}
-          <a href="{{ page.github }}" target="_blank" rel="noopener" class="btn btn-github">
-            GitHub ↗
-          </a>
+          <a href="{{ page.github }}" target="_blank" rel="noopener" class="btn btn-github">GitHub ↗</a>
         {% endif %}
         {% if page.demo %}
-          <a href="{{ page.demo }}" target="_blank" rel="noopener" class="btn btn-demo">
-            Live Demo ↗
-          </a>
+          <a href="{{ page.demo }}" target="_blank" rel="noopener" class="btn btn-demo">Live Demo ↗</a>
         {% endif %}
       </div>
     {% endif %}
@@ -60,22 +52,16 @@ layout: default
     {% if page.github %}
       <div class="post-footer-github">
         <span>查看源码：</span>
-        <a href="{{ page.github }}" target="_blank" rel="noopener">
-          {{ page.github }}
-        </a>
+        <a href="{{ page.github }}" target="_blank" rel="noopener">{{ page.github }}</a>
       </div>
     {% endif %}
 
     <nav class="post-nav">
       {% if page.previous_post %}
-        <a href="{{ page.previous_post.url }}" class="post-nav-prev">
-          ← {{ page.previous_post.title }}
-        </a>
+        <a href="{{ page.previous_post.url }}" class="post-nav-prev">← {{ page.previous_post.title }}</a>
       {% endif %}
       {% if page.next_post %}
-        <a href="{{ page.next_post.url }}" class="post-nav-next">
-          {{ page.next_post.title }} →
-        </a>
+        <a href="{{ page.next_post.url }}" class="post-nav-next">{{ page.next_post.title }} →</a>
       {% endif %}
     </nav>
   </footer>
