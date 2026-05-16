@@ -5,10 +5,6 @@ date: 2025-05-16
 tags: [Ubuntu]
 ---
 
-正文内容写在这里...
-
-# Ubuntu如何安装edge浏览器
-
 在 Ubuntu 上安装 Microsoft Edge 浏览器的步骤相对简单，你可以通过官方的 Microsoft Edge 安用包来进行安装。以下是具体的安装步骤：
 
 1. 下载 Microsoft Edge 安装包
